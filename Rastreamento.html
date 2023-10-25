@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rastreamento de Pedido</title>
+    <link rel="stylesheet" href="style rastreio.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/solid.css">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+          <h2>Insira o código de rastreio</h2>
+            <form action="#">
+              <input type="text" spellcheck="false" placeholder="Código" maxlength="8" required>
+              <span class="counter">8</span>
+            </form>
+          </div>
+          <script>
+            const input = document.querySelector("form input"),
+            counter = document.querySelector("form .counter"),
+            maxLength = input.getAttribute("maxlength");
+            input.onkeyup = ()=>{
+              counter.innerText = maxLength - input.value.length;
+            }
+          </script>
+        </body>
+        </html>
+

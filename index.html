@@ -1,0 +1,184 @@
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Dashboard Descartech </title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class=""></i>
+        <span class="logo_name">Descartech</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-pie-chart-alt-2'></i>
+            <span class="links_name">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-list-ul'></i>
+            <span class="links_name">Pedidos Cancelados</span>
+          </a>
+        </li>
+        <li>
+          <a href="Rastreamento.html">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Rastreio</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-box'></i>
+            <span class="links_name">Detalhes de Descarte</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-user'></i>
+            <span class="links_name">Clientes da Filial</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-book-alt'></i>
+            <span class="links_name">FAQ</span>
+          </a>
+        </li>
+        <li>
+          <a href="Contato.html">
+            <i class='bx bx-message' ></i>
+            <span class="links_name">Contato</span>
+          </a>
+        </li>
+        </a>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">
+      <nav>
+        <div class="sidebar-button">
+          <i class='bx bx-menu sidebarBtn'></i>
+          <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Procurar...">
+          <i class='bx bx-search'></i>
+        </div>
+        <div class="profile-details">
+          <img src="images/profile.jpg" alt="">
+          <span class="admin_name">Usuário</span>
+          <i class=''></i>
+        </div>
+      </nav>
+
+      <div class="home-content">
+        <div class="overview-boxes">
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Descartados</div>
+              <div class="number">40</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text">4% (30 dias)</span>
+              </div>
+            </div>
+            <i class='bx bx-cart-alt cart'></i>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Doados</div>
+              <div class="number">38</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text">4% (30 dias)</span>
+              </div>
+            </div>
+            <i class='bx bxs-cart-add cart two'></i>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Cancelados</div>
+              <div class="number">12</div>
+              <div class="indicator">
+                <i class='bx bx-down-arrow-alt down'></i>
+                <span class="text">25% (30 dias)</span>
+              </div>
+            </div>
+            <i class='bx bx-cart cart three'></i>
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Vlr Cancelados</div>
+              <div class="number">$128</div>
+              <div class="indicator">
+                <i class='bx bx-down-arrow-alt down'></i>
+                <span class="text">12% (20 dias)</span>
+              </div>
+            </div>
+            <i class='bx bxs-cart-download cart four' ></i>
+          </div>
+        </div>
+
+        <div class="overview-boxes">
+          <div class="box">
+            <div class="circle">
+              <div class="bar"></div>
+              <div class="box"><span></span></div>
+            </div>
+            <div class="text">Cancelados</div>
+          </div>
+          <div class="box js">
+            <div class="circle">
+              <div class="bar"></div>
+              <div class="box"><span></span></div>
+            </div>
+            <div class="text">Reutilizados</div>
+          </div>
+          <div class="box react">
+            <div class="circle">
+              <div class="bar"></div>
+              <div class="box"><span></span></div>
+            </div>
+            <div class="text">Descartados</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <script>
+      let options = {
+        startAngle: -1.55,
+        size: 150,
+        value: 0.85,
+        fill: {gradient: ['#a445b2', '#fa4299']}
+      }
+      $(".circle .bar").circleProgress(options).on('circle-animation-progress',
+      function(event, progress, stepValue){
+        $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%");
+      });
+      $(".js .bar").circleProgress({
+        value: 0.70
+      });
+      $(".react .bar").circleProgress({
+        value: 0.60
+      });
+    </script>
+
+  </body>
+  </html>
